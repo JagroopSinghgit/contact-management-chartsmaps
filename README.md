@@ -33,6 +33,7 @@ Follow these steps to set up and run the Contact Management ChartsMaps applicati
    ```bash
    npm install
    ```
+I already add node_modules so you can forgot npm install
 
 ## Usage
 
