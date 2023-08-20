@@ -68,35 +68,47 @@ const ChartsMaps = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="charts-section">
-        <h2 className="section-heading">Worldwide COVID-19 Data</h2>
-        <div className="line-chart">
-          <Line data={graphData} />
+    <div className="bg-gray-100 min-h-screen p-8">
+      <div className="container mx-auto">
+        <div className="charts-section mb-8">
+          <h2 className="text-2xl font-bold mb-4">Worldwide COVID-19 Data</h2>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <Line data={graphData} />
+          </div>
         </div>
-      </div>
-      <div className="map-section">
-        <h2 className="section-heading">COVID-19 Map</h2>
-        <div className="map-container">
-          <MapContainer center={mapCenter} zoom={mapZoom}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            {/* Render markers for countries using countriesData here */}
-            {countriesData.map((country) => (
-              <Marker
-                key={country.countryInfo.iso2}
-                position={[country.countryInfo.lat, country.countryInfo.long]}
-              >
-                <Popup>
-                  <div className="popup-content">
-                    <h3 className="popup-country">{country.country}</h3>
-                    <p className="popup-data">Total Cases: {country.cases}</p>
-                    <p className="popup-data">Recovered: {country.recovered}</p>
-                    <p className="popup-data">Deaths: {country.deaths}</p>
-                  </div>
-                </Popup>
-              </Marker>
-            ))}
-          </MapContainer>
+        <div className="map-section">
+          <h2 className="text-2xl font-bold mb-4">COVID-19 Map</h2>
+          <div className="bg-white p-6 rounded-lg shadow-md overflow-hidden">
+            <div className="h-80 md:h-96">
+              <MapContainer center={mapCenter} zoom={mapZoom}>
+                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                {countriesData.map((country) => (
+                  <Marker
+                    key={country.countryInfo.iso2}
+                    position={[
+                      country.countryInfo.lat,
+                      country.countryInfo.long,
+                    ]}
+                  >
+                    <Popup>
+                      <div className="popup-content">
+                        <h3 className="text-lg font-bold mb-2">
+                          {country.country}
+                        </h3>
+                        <p className="text-sm mb-1">
+                          Total Cases: {country.cases}
+                        </p>
+                        <p className="text-sm mb-1">
+                          Recovered: {country.recovered}
+                        </p>
+                        <p className="text-sm mb-1">Deaths: {country.deaths}</p>
+                      </div>
+                    </Popup>
+                  </Marker>
+                ))}
+              </MapContainer>
+            </div>
+          </div>
         </div>
       </div>
     </div>
