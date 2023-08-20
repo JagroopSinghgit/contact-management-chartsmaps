@@ -47,7 +47,10 @@ function App() {
               <div className="w-full md:w-3/4 p-4">
                 <div className="container mx-auto bg-white shadow-lg rounded-lg p-6">
                   <Routes>
-                    <Route exact path="/" element={<Contacts />} />
+                    <Route exact path="/contact-management-chartsmaps" element={<Contacts />} />
+                    {/* use this in localhost
+                      <Route exact path="/" element={<Contacts />} />
+                    */}
                     <Route path="/charts-maps" element={<ChartsMaps />} />
                   </Routes>
                 </div>
