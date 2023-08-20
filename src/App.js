@@ -18,11 +18,19 @@ function App() {
                 <ul className="space-y-4 w-full">
                   <li className="w-full">
                     <Link
-                      to="/"
+                      to="/contact-management-chartsmaps"
                       className="text-white text-lg font-semibold hover:text-blue-300 block p-2 text-center bg-blue-500 rounded-lg"
                     >
                       Contacts
                     </Link>
+                    {/* 
+                     use this on localhost
+                    <Link
+                      to="/"
+                      className="text-white text-lg font-semibold hover:text-blue-300 block p-2 text-center bg-blue-500 rounded-lg"
+                    >
+                      Contacts
+                   </Link>*/}
                   </li>
                   <li className="w-full">
                     <Link
